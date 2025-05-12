@@ -1,59 +1,84 @@
-# Selenium-integration-tests
+# [Soccer Junkies] – Selenium Java Automation
 
-### Introduction
-`Selenium` is an automation tool for Functional Testing of the web-based application. Selenium supports different language like java, ruby, python C#, etc. `Cucumber` is a testing approach which supports Behavior Driven Development (BDD). It explains the behavior of the application in a simple English text using Gherkin language.
+## 📌 Project Purpose
 
+This project automates key UI test cases for [Soccer Junkies].  
+It is built using Selenium WebDriver with Java and integrated with Jenkins to support automated test runs in a CI/CD pipeline.
 
-### Prerequisites
+---
 
-- Java JDK 8+ should be installed
-- JAVA_HOME environment variable should be set
-- IDE (Eclipse, IntelliJ, etc..)
+## 🧰 Tech Stack
+
+- Java 11+
+- Selenium WebDriver
+- TestNG
 - Maven
+- Jenkins
+- Git
 
-### Setting up
-- Clone this repository
-- Open the project(wfp-MoDa-integration-tests) on the IDE through pom.xml file
-- Checkout the main branch
-- Create the required packages
-- Configure Cucumber with Maven:
+---
 
-      - Create a maven project
-       (File -> New -> Maven Project)
-      - Open pom.xml file and add necessary dependencies.
-      - Dependencies can be found here (https://mvnrepository.com/)
+## ⚙️ Setup Instructions
 
-#### Packages
-  
-  ##### 1. General
-    Contains the following files
-        a. General functions for reports defined in **MainCall** class
-        b. General functions are define in **GeneralFunctions** class
-        c. Webdriver related functions defined in **WebDriverFactory** class
-        d. Selenium Functions defined in **SeleniumFunctions** class
+### 1. Clone the Repository
+```bash
+git clone https://github.com/murayakarina/jenkins-sample-project.git
+cd Soccer Junkies
+```
 
+### 2. Install Prerequisites
 
-  ##### 2. Objects
-    This folder defines all the pages of the application under test that selenium will be interacting with when running the tests.
+Make sure the following tools are installed and properly configured:
 
-  ##### 3. Step-definition
-    Holds the test method and code which are mapped to the Gherkin test case steps on the feature file. It maps the Test Case Steps in the feature files  to code, executes the steps on Application Under Test and checks the outcomes against expected results. 
+- Java (version 11 or higher)
+- Maven
+- Git
+- Chrome browser
+- ChromeDriver (ensure it's in your system `PATH`)
+- IntelliJ IDEA (or any preferred Java IDE)
 
-  ##### 4. tests
-    Holds the RunCukesTest file for executing particular feature files.
+### 3. Run Tests Locally
+```bash
+mvn clean test
+```
 
+---
 
-  ##### 5. Resources folder
-    Contains the following files; 
-      a. ApplicationConfig.properties file for changing the project credentials
-      b. Feature files - Contain the list of scenarios to be tested
+## 🤖 Jenkins Integration
 
-### Test execution
-To execute the test scripts, follow the steps below.
-  - To test a single feature, right click on a feature file and Run it
-  - To tests all the feature files, add the names of features to the runner class in the runner file as tags then run it.
-  - Wait for full execution
-  - After execution is completed, open /reports/ExtentReport.html on Chrome browser to view results
+1. Create a Pipeline job in Jenkins.
+2. Point it to this GitHub repository.
+3. Use the `Jenkinsfile` provided to define your pipeline:
 
+```groovy
+pipeline {
+    agent any
+    stages {
+        stage('Build') {
+            steps {
+                sh 'mvn clean compile'
+            }
+        }
+        stage('Test') {
+            steps {
+                sh 'mvn test'
+            }
+        }
+    }
+}
+```
 
-Refer to [this tutorial](https://www.guru99.com/using-cucumber-selenium.html) for more information.
+---
+
+## 📄 Test Reports
+
+- TestNG default reports will be available in the `/test-output/` directory.
+- You can integrate ExtentReports or Allure for enhanced test reporting.
+
+---
+
+## 👤 Author
+
+Brian Muraya  
+📧 bkarinamuraya@gmail.com  
+📞 +254705376223
