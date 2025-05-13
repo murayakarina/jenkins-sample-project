@@ -35,7 +35,7 @@ public class WebDriverFactory {
             switch (Browser) {
                 case "Chrome":
 //                    op.addArguments("--start-maximized");
-//                    op.addArguments("--headless");
+                    op.addArguments("--headless");
                     driverThreadLocal.set(new ChromeDriver(op));
                     break;
 
