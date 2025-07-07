@@ -20,6 +20,7 @@ public class loginSteps {
         MainCall.loginPage.clickLogin();
         MainCall.loginPage.enterUserName(username);
         MainCall.loginPage.enterPassword(password);
+        MainCall.loginPage.clickLogin();
     }
 
     @And("I click on the login button")
@@ -60,26 +61,6 @@ public class loginSteps {
         MainCall.loginPage.verifyErrorMsg();
     }
 
-
-    @And("user enters their first name")
-    public void userEntersTheirFirstName() {
-        MainCall.loginPage.enterFirstName();
-    }
-
-    @And("user selects a favourite team")
-    public void userSelectsAFavouriteTeam() throws InterruptedException {
-        MainCall.loginPage.selectFavouriteTeam();
-    }
-
-    @And("user clicks on submit")
-    public void userClicksOnSubmit() {
-        MainCall.loginPage.clickOnSubmit();
-    }
-
-    @Then("user sees a certified message")
-    public void userSeesACertifiedMessage() {
-        MainCall.loginPage.verifyFanMessage();
-    }
 
     @And("user clicks on the logout button")
     public void userClicksOnTheLogoutButton() {

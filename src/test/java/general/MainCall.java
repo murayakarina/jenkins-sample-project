@@ -16,6 +16,7 @@ public class MainCall {
     public static WebDriverFactory webDriverFactory = new WebDriverFactory();
     public static SeleniumFunctions seleniumFunctions = new SeleniumFunctions();
     public static Login loginPage = new Login();
+    public static Dashboard dashboardPage = new Dashboard();
 //    public static Dashboard dashboardPage = new Dashboard();
 
     public static ExtentReports startReport() {
